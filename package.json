@@ -109,6 +109,8 @@
     "postcss-modules-local-by-default": "^1.0.0",
     "postcss-modules-scope": "^1.0.0",
     "postcss-modules-values": "^1.1.1",
+    "riot": "^2.3.12",
+    "riotjs-loader": "^1.2.0",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.1",
     "webpack-dev-middleware": "^1.2.0",
