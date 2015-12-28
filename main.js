@@ -3,6 +3,7 @@
 
 const electron = require('electron');
 const app = electron.app;
+const Tray = electron.Tray;
 const BrowserWindow = electron.BrowserWindow;
 const Menu = electron.Menu;
 const crashReporter = electron.crashReporter;
@@ -25,8 +26,37 @@ app.on('window-all-closed', () => {
 
 
 app.on('ready', () => {
-  mainWindow = new BrowserWindow({ width: 1024, height: 728 });
+  const appIcon = new Tray('app/icon@2x.png');
+  var contextMenu = Menu.buildFromTemplate([{
+    label: 'Start',
+    click: startApp
+  }]);
 
+  appIcon.setToolTip('Eyeze');
+  appIcon.setContextMenu(contextMenu);
+});
+
+
+function startApp() {
+
+  const electronScreen = electron.screen;
+  const size = electronScreen.getPrimaryDisplay().workAreaSize;
+  const inDevelopment = process.env.NODE_ENV === 'development';
+  let mainWindow;
+  let mainWindowOptions = {
+    width: size.width, height: size.height, transparent: true
+  };
+
+  if (inDevelopment) {
+    mainWindowOptions.width = 1024;
+    mainWindowOptions.height = 768;
+  }
+
+  mainWindow = new BrowserWindow(mainWindowOptions);
+
+  if (inDevelopment) {
+    mainWindow.openDevTools();
+  }
   if (process.env.HOT) {
     mainWindow.loadURL(`file://${__dirname}/app/hot-dev-app.html`);
   } else {
@@ -37,9 +67,6 @@ app.on('ready', () => {
     mainWindow = null;
   });
 
-  if (process.env.NODE_ENV === 'development') {
-    mainWindow.openDevTools();
-  }
 
   if (process.platform === 'darwin') {
     template = [{
@@ -240,4 +267,4 @@ app.on('ready', () => {
     menu = Menu.buildFromTemplate(template);
     mainWindow.setMenu(menu);
   }
-});
+}
