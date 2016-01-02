@@ -9,11 +9,10 @@ module.exports = {
     preLoaders: [{
       test: /\.tag$/,
       exclude: /node_modules/,
-      loader: 'riotjs-loader',
-      query: { type: 'none' }
+      loader: 'riotjs-loader'
     }],
     loaders: [{
-      test: /\.js|\.tag$/,
+      test: /\.js$|\.tag$/,
       loaders: ['babel-loader'],
       exclude: /node_modules/
     }]

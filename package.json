@@ -14,6 +14,7 @@
     "build": "better-npm-run build",
     "start": "better-npm-run start",
     "start-hot": "better-npm-run start-hot",
+    "start-hot-prod": "better-npm-run start-hot-prod",
     "package": "better-npm-run package",
     "package-all": "npm run package -- --all",
     "postinstall": "node node_modules/fbjs-scripts/node/check-dev-engines.js package.json"
@@ -30,6 +31,13 @@
       "env": {
         "HOT": 1,
         "NODE_ENV": "development"
+      }
+    },
+    "start-hot-prod": {
+      "command": "electron ./",
+      "env": {
+        "HOT": 1,
+        "NODE_ENV": "production"
       }
     },
     "package": {

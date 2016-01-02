@@ -1,6 +1,5 @@
-require('./name.tag');
+require('./background.tag');
 
 <app>
-  <name first="Hello" last="World"></name>
-  <name first="Ola" last="Mundo"></name>
+  <background></background>
 </app>

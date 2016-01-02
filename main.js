@@ -30,21 +30,29 @@ app.on('ready', () => {
   var contextMenu = Menu.buildFromTemplate([{
     label: 'Start',
     click: startApp
+  }, {
+    label: 'Stop',
+    click: stopApp
   }]);
 
   appIcon.setToolTip('Eyeze');
   appIcon.setContextMenu(contextMenu);
 });
 
+function stopApp() {
+  if (mainWindow) {
+    mainWindow.close();
+    mainWindow = null;
+  }
+}
 
 function startApp() {
 
   const electronScreen = electron.screen;
   const size = electronScreen.getPrimaryDisplay().workAreaSize;
   const inDevelopment = process.env.NODE_ENV === 'development';
-  let mainWindow;
   let mainWindowOptions = {
-    width: size.width, height: size.height, transparent: true
+    width: size.width, height: size.height, transparent: true, frame: false
   };
 
   if (inDevelopment) {
@@ -52,11 +60,13 @@ function startApp() {
     mainWindowOptions.height = 768;
   }
 
+
   mainWindow = new BrowserWindow(mainWindowOptions);
 
   if (inDevelopment) {
     mainWindow.openDevTools();
   }
+
   if (process.env.HOT) {
     mainWindow.loadURL(`file://${__dirname}/app/hot-dev-app.html`);
   } else {
