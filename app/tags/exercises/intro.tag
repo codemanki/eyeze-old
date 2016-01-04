@@ -1,6 +1,8 @@
+require('../button-link.tag');
+
 <intro>
     <style scoped>
-      :scope .container{
+      :scope .container {
         max-width: 600px;
         padding: 0 32px;
         margin: 0 auto;
@@ -26,6 +28,12 @@
         margin-left: 24px;
       }
   </style>
+  <script>
+    someAlert() {
+      alert('1');
+      return true;
+    }
+  </script>
   <div class="container">
     <div class="title">
       Guidelines
@@ -37,5 +45,8 @@
       <p>After finishing of each exercise you can blink eyes for a few seconds.</p>
       <p>Total time of the exercise: 3 minutes 25 seconds.</p>
     <div>
+    <div class="navigation">
+      <buttonLink text="Start" onclick={someAlert}/>
+    </div>
   </div>
 </intro>
