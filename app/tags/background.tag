@@ -34,6 +34,7 @@
 
   let gradientIndex = 0; // where we are in the gradients array
   let nextGradientIndex = 1; // what index of the gradients array is next
+  let colors = [];
 
   function getNextGradientIndex(index) {
     return (index + 1 < GRADIENTS.length) ? index + 1 : 0;
@@ -64,7 +65,10 @@
     const color1 = `rgb(${rgbValues.start[0] | 0}, ${rgbValues.start[1] | 0}, ${rgbValues.start[2] | 0})`;
     const color2 = `rgb(${rgbValues.stop[0] | 0}, ${rgbValues.stop[1] | 0}, ${rgbValues.stop[2] | 0})`;
 
-    styleAttr.backgroundImage = `-webkit-gradient(linear, left bottom, right top, from(${color1}), to(${color2}))`;
+    if (colors[0] !== color1 || colors[1] !== color2) {
+      styleAttr.backgroundImage = `-webkit-gradient(linear, left bottom, right top, from(${color1}), to(${color2}))`;
+      colors = [color1, color2];
+    }
 
     if (++currentAnimationStep > ANIMATION_STEPS) {
       currentAnimationStep = 0;

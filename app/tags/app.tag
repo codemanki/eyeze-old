@@ -1,7 +1,10 @@
 require('./background.tag');
 require('./wrapper.tag');
+require('./exercise.tag');
 
 <app>
   <background></background>
-  <wrapper>/</wrapper>
+  <wrapper>
+    <exercise></exercise>
+  </wrapper>
 </app>
