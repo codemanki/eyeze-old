@@ -28,7 +28,8 @@ module.exports = {
   },
   plugins: [
    new webpack.ProvidePlugin({
-      riot: 'riot'
+      riot: 'riot',
+      $: 'jquery'
     })
   ],
   externals: [
