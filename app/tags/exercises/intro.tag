@@ -11,7 +11,7 @@ require('../button-link.tag');
         text-align: left;
       }
 
-      :scope .container > .title {
+      :scope .container > .introTitle {
         font-size: 40px;
         letter-spacing: -1px;
         line-height: 35px;
@@ -20,7 +20,7 @@ require('../button-link.tag');
         padding-bottom: 32px;
       }
 
-      :scope .container> .nav_info {
+      :scope .container > .nav_info {
         padding-top: 12px;
       }
 
@@ -35,7 +35,7 @@ require('../button-link.tag');
     }
   </script>
   <div class="container">
-    <div class="title">
+    <div class="introTitle">
       Guidelines
     </div>
     <div class="content">
