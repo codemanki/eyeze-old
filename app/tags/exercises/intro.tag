@@ -1,32 +1,32 @@
 require('../button-link.tag');
 
 <intro>
-    <style scoped>
-      :scope .container {
-        max-width: 600px;
-        padding: 0 32px;
-        margin: 0 auto;
-        color: #fff;
-        font-size: 16px;
-        text-align: left;
-      }
+  <style scoped>
+    :scope .container {
+      max-width: 600px;
+      padding: 0 32px;
+      margin: 0 auto;
+      color: #fff;
+      font-size: 16px;
+      text-align: left;
+    }
 
-      :scope .container > .introTitle {
-        font-size: 40px;
-        letter-spacing: -1px;
-        line-height: 35px;
-        max-width: 600px;
-        text-align: left;
-        padding-bottom: 32px;
-      }
+    :scope .container > .introTitle {
+      font-size: 40px;
+      letter-spacing: -1px;
+      line-height: 35px;
+      max-width: 600px;
+      text-align: left;
+      padding-bottom: 32px;
+    }
 
-      :scope .container > .nav_info {
-        padding-top: 12px;
-      }
+    :scope .container > .nav_info {
+      padding-top: 12px;
+    }
 
-      :scope .container > .button {
-        margin-left: 24px;
-      }
+    :scope .container > .button {
+      margin-left: 24px;
+    }
   </style>
   <script>
     someAlert() {
