@@ -59,6 +59,13 @@ require('./exercises/relax-exercise.tag');
     }
   </style>
   <div class="exercise_wrapper">
-    <relax-exercise/>
+
   </div>
+  <script>
+    opts.observable.on('render', (exercise) => {
+      this.unmount(true);
+      const ex = riot.mount('.exercise_wrapper', exercise.name);
+      console.log(ex);
+    })
+  </script>
 </exercise>
